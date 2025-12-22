@@ -1,0 +1,12 @@
+/*
+ * Blue Color Theme
+ */
+:root {
+    --mbt-fill-color: #3b82f6 !important;
+    --mbt-border-color: rgba(59, 130, 246, 0.9) !important;
+    --mbt-tip-color: rgba(59, 130, 246, 0.9) !important;
+    --mbt-ios26-gradient-start: #60a5fa !important;
+    --mbt-ios26-gradient-end: #2563eb !important;
+    --mbt-android-fill: #3b82f6 !important;
+    --mbt-android-accent: #2563eb !important;
+}

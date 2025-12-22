@@ -1,0 +1,12 @@
+/*
+ * Emerald Color Theme
+ */
+:root {
+    --mbt-fill-color: #10b981 !important;
+    --mbt-border-color: rgba(16, 185, 129, 0.9) !important;
+    --mbt-tip-color: rgba(16, 185, 129, 0.9) !important;
+    --mbt-ios26-gradient-start: #34d399 !important;
+    --mbt-ios26-gradient-end: #059669 !important;
+    --mbt-android-fill: #10b981 !important;
+    --mbt-android-accent: #059669 !important;
+}

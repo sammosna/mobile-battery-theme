@@ -1,0 +1,12 @@
+/*
+ * Red Color Theme
+ */
+:root {
+    --mbt-fill-color: #ef4444 !important;
+    --mbt-border-color: rgba(239, 68, 68, 0.9) !important;
+    --mbt-tip-color: rgba(239, 68, 68, 0.9) !important;
+    --mbt-ios26-gradient-start: #f87171 !important;
+    --mbt-ios26-gradient-end: #dc2626 !important;
+    --mbt-android-fill: #ef4444 !important;
+    --mbt-android-accent: #dc2626 !important;
+}

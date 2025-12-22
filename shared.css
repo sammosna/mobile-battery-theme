@@ -1,0 +1,97 @@
+/*
+ * Mobile Battery Theme - Shared Variables
+ * iOS 26, Android 16, and Retro styles for Steam Deck
+ *
+ * CSS variable prefix: --mbt- (mobile-battery-theme)
+ * This follows CSS Loader best practices for unique prefixing
+ */
+
+:root {
+    /* ═══════════════════════════════════════════════════════════════
+     * DIMENSIONS
+     * ═══════════════════════════════════════════════════════════════ */
+
+    /* Horizontal battery dimensions - tiny to match Steam Deck header */
+    --mbt-h-width: 16px;
+    --mbt-h-height: 8px;
+    --mbt-h-tip-width: 1.5px;
+    --mbt-h-tip-height: 3px;
+    --mbt-h-border-radius: 1.5px;
+    --mbt-h-inner-radius: 0.5px;
+
+    /* Vertical battery dimensions */
+    --mbt-v-width: 8px;
+    --mbt-v-height: 16px;
+    --mbt-v-tip-width: 3px;
+    --mbt-v-tip-height: 1.5px;
+    --mbt-v-border-radius: 1.5px;
+    --mbt-v-inner-radius: 0.5px;
+
+    /* Border thickness */
+    --mbt-border-width: 1px;
+    --mbt-inner-padding: 1px;
+
+    /* ═══════════════════════════════════════════════════════════════
+     * COLORS - Default (White/System)
+     * ═══════════════════════════════════════════════════════════════ */
+
+    /* Primary colors */
+    --mbt-fill-color: #ffffff;
+    --mbt-border-color: rgba(255, 255, 255, 0.9);
+    --mbt-tip-color: rgba(255, 255, 255, 0.9);  /* Battery tip color - can match border or be different */
+    --mbt-bg-color: transparent;
+
+    /* State colors */
+    --mbt-low-color: #ff3b30;           /* iOS red - under 20% */
+    --mbt-critical-color: #ff2d55;       /* Critical - under 10% */
+    --mbt-charging-color: #34c759;       /* iOS green - charging */
+    --mbt-full-color: #30d158;           /* Full battery */
+
+    /* iOS 26 specific */
+    --mbt-ios26-gradient-start: #ffffff;
+    --mbt-ios26-gradient-end: rgba(255, 255, 255, 0.85);
+    --mbt-ios26-glow: rgba(255, 255, 255, 0.15);
+
+    /* Android 16 specific */
+    --mbt-android-fill: #e8eaed;
+    --mbt-android-border: rgba(255, 255, 255, 0.7);
+    --mbt-android-accent: #8ab4f8;
+
+    /* ═══════════════════════════════════════════════════════════════
+     * ANIMATIONS
+     * ═══════════════════════════════════════════════════════════════ */
+
+    --mbt-transition-speed: 0.3s;
+    --mbt-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Charging animation */
+    --mbt-pulse-duration: 2s;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * CHARGING PULSE ANIMATION
+ * ═══════════════════════════════════════════════════════════════ */
+
+@keyframes mbt-charging-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes mbt-charging-glow {
+    0%, 100% {
+        box-shadow: 0 0 4px var(--mbt-charging-color);
+    }
+    50% {
+        box-shadow: 0 0 8px var(--mbt-charging-color), 0 0 12px var(--mbt-charging-color);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+ * COLOR THEMES - Applied via separate CSS files
+ * ═══════════════════════════════════════════════════════════════ */
+
+/* These will be overridden by color-*.css files */

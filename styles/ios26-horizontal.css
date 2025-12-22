@@ -1,0 +1,37 @@
+/*
+ * iOS 26 Horizontal Battery Style
+ *
+ * Styles the Steam Deck's native SVG battery to look like iOS 26
+ * Uses attribute selectors to match hashed class names
+ */
+
+/* Battery container - matches [class*="_3XySI"]_1_6kL pattern */
+[class*="_1_6kL"][class*="Panel"] {
+    /* iOS 26 style container */
+}
+
+/* Battery stack wrapper - matches [class*="_3XySI"]VerticalStack_3XySI pattern */
+[class*="_3XySI"] {
+    /* Container styling */
+}
+
+/* Main SVG element inside the battery */
+[class*="_3XySI"] svg {
+    /* Keep original size - Steam Deck battery is already appropriately sized */
+}
+
+/* Battery outline path - make it rounded like iOS */
+[class*="_3XySI"] svg > path {
+    fill: var(--mbt-border-color) !important;
+}
+
+/* Battery fill rect - the charge level indicator */
+[class*="_3XySI"] svg svg rect {
+    fill: var(--mbt-fill-color) !important;
+}
+
+/* Override the green fill color with our custom fill */
+[class*="_3xy45At"] svg svg rect,
+[class*="_35pkQMX"] svg svg rect {
+    fill: var(--mbt-fill-color) !important;
+}

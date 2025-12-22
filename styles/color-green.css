@@ -1,0 +1,14 @@
+/*
+ * Green Color Theme
+ * Overrides fill colors with green accent
+ */
+
+:root {
+    --mbt-fill-color: #4ade80 !important;
+    --mbt-border-color: rgba(74, 222, 128, 0.9) !important;
+    --mbt-ios26-gradient-start: #4ade80 !important;
+    --mbt-ios26-gradient-end: #22c55e !important;
+    --mbt-ios26-glow: rgba(74, 222, 128, 0.2) !important;
+    --mbt-android-fill: #4ade80 !important;
+    --mbt-android-accent: #22c55e !important;
+}

@@ -1,0 +1,12 @@
+/*
+ * Pink Color Theme
+ */
+:root {
+    --mbt-fill-color: #ec4899 !important;
+    --mbt-border-color: rgba(236, 72, 153, 0.9) !important;
+    --mbt-tip-color: rgba(236, 72, 153, 0.9) !important;
+    --mbt-ios26-gradient-start: #f472b6 !important;
+    --mbt-ios26-gradient-end: #db2777 !important;
+    --mbt-android-fill: #ec4899 !important;
+    --mbt-android-accent: #db2777 !important;
+}

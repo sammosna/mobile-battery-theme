@@ -1,0 +1,12 @@
+/*
+ * Yellow Color Theme
+ */
+:root {
+    --mbt-fill-color: #eab308 !important;
+    --mbt-border-color: rgba(234, 179, 8, 0.9) !important;
+    --mbt-tip-color: rgba(234, 179, 8, 0.9) !important;
+    --mbt-ios26-gradient-start: #facc15 !important;
+    --mbt-ios26-gradient-end: #ca8a04 !important;
+    --mbt-android-fill: #eab308 !important;
+    --mbt-android-accent: #ca8a04 !important;
+}

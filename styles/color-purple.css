@@ -1,0 +1,14 @@
+/*
+ * Purple Color Theme
+ * Overrides fill colors with purple accent
+ */
+
+:root {
+    --mbt-fill-color: #a78bfa !important;
+    --mbt-border-color: rgba(167, 139, 250, 0.9) !important;
+    --mbt-ios26-gradient-start: #a78bfa !important;
+    --mbt-ios26-gradient-end: #7c3aed !important;
+    --mbt-ios26-glow: rgba(167, 139, 250, 0.2) !important;
+    --mbt-android-fill: #a78bfa !important;
+    --mbt-android-accent: #7c3aed !important;
+}

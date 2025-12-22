@@ -1,0 +1,14 @@
+/*
+ * Cyan Color Theme
+ * Overrides fill colors with cyan accent
+ */
+
+:root {
+    --mbt-fill-color: #00d4ff !important;
+    --mbt-border-color: rgba(0, 212, 255, 0.9) !important;
+    --mbt-ios26-gradient-start: #00e5ff !important;
+    --mbt-ios26-gradient-end: #00b8d4 !important;
+    --mbt-ios26-glow: rgba(0, 212, 255, 0.2) !important;
+    --mbt-android-fill: #00d4ff !important;
+    --mbt-android-accent: #00b8d4 !important;
+}

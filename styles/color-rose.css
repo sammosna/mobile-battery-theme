@@ -1,0 +1,12 @@
+/*
+ * Rose Color Theme
+ */
+:root {
+    --mbt-fill-color: #f43f5e !important;
+    --mbt-border-color: rgba(244, 63, 94, 0.9) !important;
+    --mbt-tip-color: rgba(244, 63, 94, 0.9) !important;
+    --mbt-ios26-gradient-start: #fb7185 !important;
+    --mbt-ios26-gradient-end: #e11d48 !important;
+    --mbt-android-fill: #f43f5e !important;
+    --mbt-android-accent: #e11d48 !important;
+}

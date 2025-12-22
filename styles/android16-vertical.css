@@ -1,0 +1,118 @@
+/*
+ * Android 16 Vertical Battery Style
+ *
+ * Material You upright design:
+ *   ╭─╮
+ * ╭─┴─╮
+ * │░░░│
+ * │███│
+ * │███│
+ * ╰───╯
+ *
+ * Features:
+ * - Rounded pill container
+ * - Material You aesthetics
+ * - Subtle shadow depth
+ *
+ * IMPORTANT: Replace [class*="_3XySI"] with actual CEF class
+ */
+
+/* Hide original SVG battery */
+[class*="_3XySI"] svg,
+[class*="_3XySI"] > svg,
+[class*="_3XySI"] canvas {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Main battery container - Android 16 vertical style */
+[class*="_3XySI"] {
+    position: relative !important;
+    width: 11px !important;
+    height: 20px !important;
+    background: transparent !important;
+    border: 1.5px solid #ffffff !important;
+
+    /* Rounded rectangle like reference image */
+    border-radius: 3px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    margin-top: 2px !important;
+
+    /* No shadow for clean look */
+    box-shadow: none !important;
+}
+
+/* Battery tip - top terminal */
+[class*="_3XySI"]::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -3px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 5px !important;
+    height: 2px !important;
+    background: #ffffff !important;
+    border-radius: 2px 2px 0 0 !important;
+    opacity: 1 !important;
+}
+
+/* Battery fill level - bottom up */
+[class*="_3XySI"]::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 2px !important;
+    right: 2px !important;
+    bottom: 2px !important;
+
+    /* Default 75% fill */
+    height: calc(75% - 4px) !important;
+
+    /* White solid fill like reference */
+    background: #ffffff !important;
+
+    /* Slightly rounded */
+    border-radius: 1px !important;
+
+    transition: height var(--mbt-transition-speed) var(--mbt-transition-easing),
+                background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
+}
+
+/* Low battery */
+[class*="_3XySI"].low::before,
+[class*="_3XySI"][class*="low"]::before {
+    background: #f9a825 !important;
+    height: calc(20% - 4px) !important;
+}
+
+/* Critical battery */
+[class*="_3XySI"].critical::before,
+[class*="_3XySI"][class*="critical"]::before {
+    background: #d32f2f !important;
+    animation: mbt-charging-pulse 1s ease-in-out infinite !important;
+}
+
+/* Charging state */
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before {
+    background: var(--mbt-android-accent) !important;
+    animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
+}
+
+/* Battery saver */
+[class*="_3XySI"].saver::before,
+[class*="_3XySI"][class*="saver"]::before {
+    background: #ff6f00 !important;
+}
+
+/* Full battery */
+[class*="_3XySI"].full::before,
+[class*="_3XySI"][class*="full"]::before {
+    height: calc(100% - 4px) !important;
+    background: #ffffff !important;
+}

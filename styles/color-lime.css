@@ -1,0 +1,12 @@
+/*
+ * Lime Color Theme
+ */
+:root {
+    --mbt-fill-color: #84cc16 !important;
+    --mbt-border-color: rgba(132, 204, 22, 0.9) !important;
+    --mbt-tip-color: rgba(132, 204, 22, 0.9) !important;
+    --mbt-ios26-gradient-start: #a3e635 !important;
+    --mbt-ios26-gradient-end: #65a30d !important;
+    --mbt-android-fill: #84cc16 !important;
+    --mbt-android-accent: #65a30d !important;
+}

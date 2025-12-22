@@ -1,0 +1,12 @@
+/*
+ * Indigo Color Theme
+ */
+:root {
+    --mbt-fill-color: #6366f1 !important;
+    --mbt-border-color: rgba(99, 102, 241, 0.9) !important;
+    --mbt-tip-color: rgba(99, 102, 241, 0.9) !important;
+    --mbt-ios26-gradient-start: #818cf8 !important;
+    --mbt-ios26-gradient-end: #4f46e5 !important;
+    --mbt-android-fill: #6366f1 !important;
+    --mbt-android-accent: #4f46e5 !important;
+}

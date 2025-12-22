@@ -1,0 +1,120 @@
+/*
+ * Android 16 Horizontal Battery Style
+ *
+ * Material You design with pill shape and modern aesthetics:
+ * ╭──────────────╮
+ * │ ████████░░░░ ├╮
+ * ╰──────────────╯╯
+ *
+ * Features:
+ * - Pill-shaped container (larger radius than iOS)
+ * - Material You color system ready
+ * - Subtle transparency effects
+ *
+ * IMPORTANT: Replace [class*="_3XySI"] with actual CEF class
+ */
+
+/* Hide original SVG battery */
+[class*="_3XySI"] svg,
+[class*="_3XySI"] > svg,
+[class*="_3XySI"] canvas {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Main battery container - Android 16 pill style */
+[class*="_3XySI"] {
+    position: relative !important;
+    width: 30px !important;
+    height: 14px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: var(--mbt-border-width) solid var(--mbt-android-border) !important;
+
+    /* Android 16: More rounded, pill-like */
+    border-radius: 7px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    padding: 2px !important;
+    box-sizing: border-box !important;
+    margin-right: 4px !important;
+
+    /* Material You subtle depth */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Battery tip - Android style (smaller, integrated) */
+[class*="_3XySI"]::after {
+    content: '' !important;
+    position: absolute !important;
+    right: -4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 3px !important;
+    height: 8px !important;
+    background: var(--mbt-android-border) !important;
+    border-radius: 0 3px 3px 0 !important;
+    opacity: 0.8 !important;
+}
+
+/* Battery fill level */
+[class*="_3XySI"]::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 3px !important;
+    top: 3px !important;
+    bottom: 3px !important;
+
+    /* Default 75% fill */
+    width: calc(75% - 6px) !important;
+
+    /* Android 16: Solid color with slight transparency */
+    background: var(--mbt-android-fill) !important;
+
+    /* Pill-shaped inner fill */
+    border-radius: 4px !important;
+
+    transition: width var(--mbt-transition-speed) var(--mbt-transition-easing),
+                background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
+}
+
+/* Low battery - Android uses orange then red */
+[class*="_3XySI"].low::before,
+[class*="_3XySI"][class*="low"]::before {
+    background: #f9a825 !important; /* Material Orange */
+    width: calc(20% - 6px) !important;
+}
+
+/* Critical battery */
+[class*="_3XySI"].critical::before,
+[class*="_3XySI"][class*="critical"]::before {
+    background: #d32f2f !important; /* Material Red */
+    animation: mbt-charging-pulse 1s ease-in-out infinite !important;
+}
+
+/* Charging state - Android accent color */
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before {
+    background: var(--mbt-android-accent) !important;
+    animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
+}
+
+/* Battery saver mode indicator */
+[class*="_3XySI"].saver::before,
+[class*="_3XySI"][class*="saver"]::before {
+    background: #ff6f00 !important; /* Material Amber */
+}
+
+/* Full battery */
+[class*="_3XySI"].full::before,
+[class*="_3XySI"][class*="full"]::before {
+    width: calc(100% - 6px) !important;
+    background: #4caf50 !important; /* Material Green */
+}
+
+/* Adaptive icon container (optional - for dynamic theming) */
+[class*="_3XySI"][data-theme="dark"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}

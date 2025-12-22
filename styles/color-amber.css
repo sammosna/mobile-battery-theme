@@ -1,0 +1,12 @@
+/*
+ * Amber Color Theme
+ */
+:root {
+    --mbt-fill-color: #f59e0b !important;
+    --mbt-border-color: rgba(245, 158, 11, 0.9) !important;
+    --mbt-tip-color: rgba(245, 158, 11, 0.9) !important;
+    --mbt-ios26-gradient-start: #fbbf24 !important;
+    --mbt-ios26-gradient-end: #d97706 !important;
+    --mbt-android-fill: #f59e0b !important;
+    --mbt-android-accent: #d97706 !important;
+}

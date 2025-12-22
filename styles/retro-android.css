@@ -1,0 +1,164 @@
+/*
+ * Retro Android Battery Style (Android 4.x / Holo Era)
+ *
+ * Classic Android Holo design:
+ * ┌────────────────┐
+ * │ ████████░░░░░░ ├─
+ * └────────────────┘
+ *
+ * Features:
+ * - Holo blue/cyan accent
+ * - Sharp geometric design
+ * - Roboto-era aesthetics
+ * - Tron-like glow effects
+ *
+ * IMPORTANT: Replace [class*="_3XySI"] with actual CEF class
+ */
+
+/* Hide original SVG battery */
+[class*="_3XySI"] svg,
+[class*="_3XySI"] > svg,
+[class*="_3XySI"] canvas {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Main battery container - Holo style */
+[class*="_3XySI"] {
+    position: relative !important;
+    width: 28px !important;
+    height: 13px !important;
+
+    /* Dark translucent background */
+    background: rgba(0, 0, 0, 0.6) !important;
+
+    /* Holo blue border with glow */
+    border: 1px solid #33b5e5 !important;
+
+    /* Sharp corners - very Holo */
+    border-radius: 1px !important;
+
+    /* Holo glow effect */
+    box-shadow:
+        0 0 2px #33b5e5,
+        inset 0 0 3px rgba(51, 181, 229, 0.2) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    padding: 2px !important;
+    box-sizing: border-box !important;
+    margin-right: 5px !important;
+}
+
+/* Battery tip - Geometric Holo style */
+[class*="_3XySI"]::after {
+    content: '' !important;
+    position: absolute !important;
+    right: -5px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 4px !important;
+    height: 6px !important;
+
+    background: rgba(0, 0, 0, 0.6) !important;
+    border: 1px solid #33b5e5 !important;
+    border-left: none !important;
+    border-radius: 0 1px 1px 0 !important;
+
+    /* Matching glow */
+    box-shadow: 0 0 2px #33b5e5 !important;
+}
+
+/* Battery fill - Holo blue */
+[class*="_3XySI"]::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 2px !important;
+    top: 2px !important;
+    bottom: 2px !important;
+
+    /* Default 75% fill */
+    width: calc(75% - 4px) !important;
+
+    /* Classic Holo blue gradient */
+    background: linear-gradient(
+        180deg,
+        #66d9ef 0%,
+        #33b5e5 30%,
+        #0099cc 70%,
+        #0077aa 100%
+    ) !important;
+
+    /* Inner glow */
+    box-shadow: 0 0 4px rgba(51, 181, 229, 0.5) !important;
+
+    border-radius: 0 !important;
+    transition: width 0.3s ease !important;
+}
+
+/* Low battery - Holo orange/red */
+[class*="_3XySI"].low::before,
+[class*="_3XySI"][class*="low"]::before {
+    background: linear-gradient(
+        180deg,
+        #ffbb33 0%,
+        #ff8800 50%,
+        #cc6600 100%
+    ) !important;
+    box-shadow: 0 0 4px rgba(255, 136, 0, 0.5) !important;
+    width: calc(20% - 4px) !important;
+}
+
+/* Change border to match low state */
+[class*="_3XySI"].low,
+[class*="_3XySI"][class*="low"] {
+    border-color: #ff8800 !important;
+    box-shadow:
+        0 0 2px #ff8800,
+        inset 0 0 3px rgba(255, 136, 0, 0.2) !important;
+}
+
+/* Critical battery */
+[class*="_3XySI"].critical::before,
+[class*="_3XySI"][class*="critical"]::before {
+    background: linear-gradient(
+        180deg,
+        #ff4444 0%,
+        #cc0000 50%,
+        #990000 100%
+    ) !important;
+    box-shadow: 0 0 4px rgba(255, 68, 68, 0.5) !important;
+}
+
+/* Charging - Holo green */
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before {
+    background: linear-gradient(
+        180deg,
+        #99cc00 0%,
+        #669900 50%,
+        #527a00 100%
+    ) !important;
+    box-shadow: 0 0 4px rgba(153, 204, 0, 0.5) !important;
+}
+
+[class*="_3XySI"].charging,
+[class*="_3XySI"][class*="charging"] {
+    border-color: #99cc00 !important;
+    box-shadow:
+        0 0 2px #99cc00,
+        inset 0 0 3px rgba(153, 204, 0, 0.2) !important;
+}
+
+/* Full battery */
+[class*="_3XySI"].full::before,
+[class*="_3XySI"][class*="full"]::before {
+    width: calc(100% - 4px) !important;
+    background: linear-gradient(
+        180deg,
+        #99cc00 0%,
+        #669900 50%,
+        #527a00 100%
+    ) !important;
+}

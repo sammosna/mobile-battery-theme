@@ -1,0 +1,20 @@
+/*
+ * Show Battery Percentage Text (Explicit)
+ *
+ * Ensures percentage is visible and styled to match the theme
+ *
+ * IMPORTANT: Replace [BATTERY_PERCENTAGE_CLASS] with actual CEF class
+ */
+
+[BATTERY_PERCENTAGE_CLASS],
+[class*="BatteryPercentage"],
+[class*="batterypercentage"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Roboto', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: var(--mbt-fill-color, #ffffff) !important;
+    margin-left: 4px !important;
+}

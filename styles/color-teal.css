@@ -1,0 +1,12 @@
+/*
+ * Teal Color Theme
+ */
+:root {
+    --mbt-fill-color: #14b8a6 !important;
+    --mbt-border-color: rgba(20, 184, 166, 0.9) !important;
+    --mbt-tip-color: rgba(20, 184, 166, 0.9) !important;
+    --mbt-ios26-gradient-start: #2dd4bf !important;
+    --mbt-ios26-gradient-end: #0d9488 !important;
+    --mbt-android-fill: #14b8a6 !important;
+    --mbt-android-accent: #0d9488 !important;
+}

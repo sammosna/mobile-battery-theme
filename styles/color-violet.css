@@ -1,0 +1,12 @@
+/*
+ * Violet Color Theme
+ */
+:root {
+    --mbt-fill-color: #8b5cf6 !important;
+    --mbt-border-color: rgba(139, 92, 246, 0.9) !important;
+    --mbt-tip-color: rgba(139, 92, 246, 0.9) !important;
+    --mbt-ios26-gradient-start: #a78bfa !important;
+    --mbt-ios26-gradient-end: #7c3aed !important;
+    --mbt-android-fill: #8b5cf6 !important;
+    --mbt-android-accent: #7c3aed !important;
+}

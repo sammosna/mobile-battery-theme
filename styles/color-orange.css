@@ -1,0 +1,14 @@
+/*
+ * Orange Color Theme
+ * Overrides fill colors with orange accent
+ */
+
+:root {
+    --mbt-fill-color: #fb923c !important;
+    --mbt-border-color: rgba(251, 146, 60, 0.9) !important;
+    --mbt-ios26-gradient-start: #fb923c !important;
+    --mbt-ios26-gradient-end: #ea580c !important;
+    --mbt-ios26-glow: rgba(251, 146, 60, 0.2) !important;
+    --mbt-android-fill: #fb923c !important;
+    --mbt-android-accent: #ea580c !important;
+}

@@ -1,0 +1,21 @@
+/*
+ * Hide Battery Percentage Text
+ *
+ * Hides the percentage number next to the battery icon
+ *
+ * IMPORTANT: Replace [BATTERY_PERCENTAGE_CLASS] with actual CEF class
+ * Example: .batterypercentage_BatteryPercentage_2xK4m
+ */
+
+[BATTERY_PERCENTAGE_CLASS],
+[class*="BatteryPercentage"],
+[class*="batterypercentage"],
+[class*="battery-percentage"],
+[class*="PercentageText"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}

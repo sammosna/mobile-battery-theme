@@ -1,0 +1,14 @@
+/*
+ * Magenta Color Theme
+ * Overrides fill colors with magenta/pink accent
+ */
+
+:root {
+    --mbt-fill-color: #f472b6 !important;
+    --mbt-border-color: rgba(244, 114, 182, 0.9) !important;
+    --mbt-ios26-gradient-start: #f472b6 !important;
+    --mbt-ios26-gradient-end: #db2777 !important;
+    --mbt-ios26-glow: rgba(244, 114, 182, 0.2) !important;
+    --mbt-android-fill: #f472b6 !important;
+    --mbt-android-accent: #db2777 !important;
+}
