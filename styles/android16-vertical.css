@@ -10,11 +10,9 @@
  * ╰───╯
  *
  * Features:
- * - Rounded pill container
- * - Material You aesthetics
- * - Subtle shadow depth
- *
- * IMPORTANT: Replace [class*="_3XySI"] with actual CEF class
+ * - Razor thin border
+ * - Fill almost touching border
+ * - Clean minimal design
  */
 
 /* Hide original SVG battery */
@@ -27,57 +25,61 @@
 }
 
 /* Main battery container - Android 16 vertical style */
+/* Canvas: 12x20 (3:5 ratio, 0.6:1), keeping proportional */
 [class*="_3XySI"] {
     position: relative !important;
-    width: 11px !important;
-    height: 20px !important;
-    background: transparent !important;
-    border: 1.5px solid #ffffff !important;
+    width: 10px !important;
+    height: 16px !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: none !important;
 
-    /* Rounded rectangle like reference image */
-    border-radius: 3px !important;
+    /* Rounded rectangle - more pill-like */
+    border-radius: 2.5px !important;
 
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    margin-top: 2px !important;
+    margin-top: 3px !important;
 
-    /* No shadow for clean look */
+    /* Clean look */
     box-shadow: none !important;
+    overflow: visible !important;
 }
 
-/* Battery tip - top terminal */
+/* Battery tip - top, no gap */
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    top: -3px !important;
+    top: -2px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 5px !important;
+    width: 4px !important;
     height: 2px !important;
-    background: #ffffff !important;
-    border-radius: 2px 2px 0 0 !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 1px 1px 0 0 !important;
     opacity: 1 !important;
 }
 
-/* Battery fill level - bottom up */
+/* Battery fill level - fills from bottom up */
 [class*="_3XySI"]::before {
     content: '' !important;
     position: absolute !important;
-    left: 2px !important;
-    right: 2px !important;
-    bottom: 2px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 1 !important;
 
     /* Default 75% fill */
-    height: calc(75% - 4px) !important;
+    height: 75% !important;
+    max-height: 100% !important;
 
-    /* White solid fill like reference */
-    background: #ffffff !important;
+    /* Fill color from variable */
+    background: var(--mbt-fill-color, #ffffff) !important;
 
-    /* Slightly rounded */
-    border-radius: 1px !important;
+    /* Match container rounding */
+    border-radius: 2.5px !important;
 
     transition: height var(--mbt-transition-speed) var(--mbt-transition-easing),
                 background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
@@ -87,7 +89,7 @@
 [class*="_3XySI"].low::before,
 [class*="_3XySI"][class*="low"]::before {
     background: #f9a825 !important;
-    height: calc(20% - 4px) !important;
+    height: calc(20% - 2px) !important;
 }
 
 /* Critical battery */
@@ -100,7 +102,7 @@
 /* Charging state */
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before {
-    background: var(--mbt-android-accent) !important;
+    background: var(--mbt-android-accent, #8ab4f8) !important;
     animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
 }
 
@@ -113,6 +115,6 @@
 /* Full battery */
 [class*="_3XySI"].full::before,
 [class*="_3XySI"][class*="full"]::before {
-    height: calc(100% - 4px) !important;
-    background: #ffffff !important;
+    height: calc(100% - 2px) !important;
+    background: var(--mbt-fill-color, #ffffff) !important;
 }

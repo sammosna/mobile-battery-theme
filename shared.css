@@ -35,10 +35,10 @@
      * COLORS - Default (White/System)
      * ═══════════════════════════════════════════════════════════════ */
 
-    /* Primary colors */
+    /* Primary colors - these get overridden by color-*.css and border-*.css */
     --mbt-fill-color: #ffffff;
-    --mbt-border-color: rgba(255, 255, 255, 0.9);
-    --mbt-tip-color: rgba(255, 255, 255, 0.9);  /* Battery tip color - can match border or be different */
+    --mbt-border-color: #ffffff;
+    --mbt-tip-color: #ffffff;
     --mbt-bg-color: transparent;
 
     /* State colors */

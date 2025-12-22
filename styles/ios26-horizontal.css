@@ -1,37 +1,110 @@
 /*
  * iOS 26 Horizontal Battery Style
  *
- * Styles the Steam Deck's native SVG battery to look like iOS 26
- * Uses attribute selectors to match hashed class names
+ * Modern iOS battery design:
+ * ╭──────────────╮╮
+ * │ ████████░░░░ ││
+ * ╰──────────────╯╯
+ *
+ * Features:
+ * - Rounded rectangle with smooth corners
+ * - Clean minimal design
+ * - Small rounded tip on right side
  */
 
-/* Battery container - matches [class*="_3XySI"]_1_6kL pattern */
-[class*="_1_6kL"][class*="Panel"] {
-    /* iOS 26 style container */
+/* Hide original SVG battery */
+[class*="_3XySI"] svg,
+[class*="_3XySI"] > svg,
+[class*="_3XySI"] canvas {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
-/* Battery stack wrapper - matches [class*="_3XySI"]VerticalStack_3XySI pattern */
+/* Main battery container - iOS 26 horizontal style */
+/* Same size as Android but with outline style */
 [class*="_3XySI"] {
-    /* Container styling */
+    position: relative !important;
+    width: 20px !important;
+    height: 12px !important;
+    background: transparent !important;
+    border: 1px solid var(--mbt-border-color, #ffffff) !important;
+
+    /* Rounded rectangle - match Android */
+    border-radius: 3px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    margin-right: 4px !important;
+
+    /* Clean look */
+    box-shadow: none !important;
+    overflow: visible !important;
 }
 
-/* Main SVG element inside the battery */
-[class*="_3XySI"] svg {
-    /* Keep original size - Steam Deck battery is already appropriately sized */
+/* Battery tip - right side */
+[class*="_3XySI"]::after {
+    content: '' !important;
+    position: absolute !important;
+    right: -2px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 2px !important;
+    height: 6px !important;
+    background: var(--mbt-tip-color, #ffffff) !important;
+    border-radius: 0 1.5px 1.5px 0 !important;
+    opacity: 1 !important;
 }
 
-/* Battery outline path - make it rounded like iOS */
-[class*="_3XySI"] svg > path {
-    fill: var(--mbt-border-color) !important;
+/* Battery fill level */
+[class*="_3XySI"]::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 1px !important;
+    top: 1px !important;
+    bottom: 1px !important;
+    z-index: 1 !important;
+
+    /* Default 75% fill - starts from left, grows right */
+    width: calc(75% - 2px) !important;
+    max-width: calc(100% - 2px) !important;
+
+    /* Fill color from variable */
+    background: var(--mbt-fill-color, #ffffff) !important;
+
+    /* Minimal rounding */
+    border-radius: 2px !important;
+
+    transition: width var(--mbt-transition-speed) var(--mbt-transition-easing),
+                background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
 }
 
-/* Battery fill rect - the charge level indicator */
-[class*="_3XySI"] svg svg rect {
-    fill: var(--mbt-fill-color) !important;
+/* Low battery */
+[class*="_3XySI"].low::before,
+[class*="_3XySI"][class*="low"]::before {
+    background: #ff3b30 !important;
+    width: calc(20% - 2px) !important;
 }
 
-/* Override the green fill color with our custom fill */
-[class*="_3xy45At"] svg svg rect,
-[class*="_35pkQMX"] svg svg rect {
-    fill: var(--mbt-fill-color) !important;
+/* Critical battery */
+[class*="_3XySI"].critical::before,
+[class*="_3XySI"][class*="critical"]::before {
+    background: #ff2d55 !important;
+    animation: mbt-charging-pulse 1s ease-in-out infinite !important;
+}
+
+/* Charging state */
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before {
+    background: #34c759 !important;
+    animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
+}
+
+/* Full battery */
+[class*="_3XySI"].full::before,
+[class*="_3XySI"][class*="full"]::before {
+    width: calc(100% - 2px) !important;
+    background: var(--mbt-fill-color, #ffffff) !important;
 }

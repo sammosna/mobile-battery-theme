@@ -13,12 +13,8 @@
             "default": "Android 16 Vertical",
             "type": "dropdown",
             "values": {
-                "iOS 26 Horizontal": { "styles/ios26-horizontal.css": ["SP", "QuickAccess", "MainMenu"] },
-                "iOS 26 Vertical": { "styles/ios26-vertical.css": ["SP", "QuickAccess", "MainMenu"] },
                 "Android 16 Horizontal": { "styles/android16-horizontal.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Android 16 Vertical": { "styles/android16-vertical.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Retro iOS": { "styles/retro-ios.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Retro Android": { "styles/retro-android.css": ["SP", "QuickAccess", "MainMenu"] }
+                "Android 16 Vertical": { "styles/android16-vertical.css": ["SP", "QuickAccess", "MainMenu"] }
             }
         },
         "Fill Color": {
