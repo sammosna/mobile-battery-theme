@@ -2,21 +2,24 @@
  * Show Battery Percentage NEXT TO Battery
  *
  * Displays percentage number beside the battery icon
+ * Like iOS: "17⚡" when charging
  */
 
 /* Style the percentage text to appear next to battery */
 [class*="BatteryPercentage"],
 [class*="batteryPercentage"],
 [class*="_percentage"],
-[class*="Percentage"] {
-    display: flex !important;
+[class*="Percentage"],
+[class*="_3XySI"] + span,
+[class*="_3XySI"] ~ span {
+    display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 10 !important;
 
-    /* Typography */
+    /* Typography - match iOS */
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Roboto', sans-serif !important;
-    font-size: 8px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     letter-spacing: -0.3px !important;
 
@@ -28,7 +31,19 @@
     padding: 0 !important;
 }
 
-/* When charging, percentage turns green */
+/* When charging, percentage turns green with lightning bolt */
+[class*="Charging"] [class*="BatteryPercentage"]::after,
+[class*="Charging"] [class*="batteryPercentage"]::after,
+[class*="Charging"] [class*="_percentage"]::after,
+[class*="Charging"] [class*="Percentage"]::after,
+[class*="charging"] [class*="BatteryPercentage"]::after,
+[class*="charging"] [class*="batteryPercentage"]::after,
+[class*="charging"] [class*="_percentage"]::after,
+[class*="charging"] [class*="Percentage"]::after {
+    content: '⚡' !important;
+    margin-left: 1px !important;
+}
+
 [class*="Charging"] [class*="BatteryPercentage"],
 [class*="Charging"] [class*="batteryPercentage"],
 [class*="Charging"] [class*="_percentage"],
@@ -40,7 +55,7 @@
     color: #34c759 !important;
 }
 
-/* When low battery, percentage turns yellow */
+/* When low battery, percentage turns red (like iOS screenshot) */
 [class*="Low"] [class*="BatteryPercentage"],
 [class*="Low"] [class*="batteryPercentage"],
 [class*="Low"] [class*="_percentage"],
@@ -49,7 +64,7 @@
 [class*="low"] [class*="batteryPercentage"],
 [class*="low"] [class*="_percentage"],
 [class*="low"] [class*="Percentage"] {
-    color: #f9a825 !important;
+    color: #ff3b30 !important;
 }
 
 /* When critical battery, percentage turns red */
