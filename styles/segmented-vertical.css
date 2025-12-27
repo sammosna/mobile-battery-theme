@@ -54,7 +54,7 @@
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    top: -2.25px !important;
+    top: -3px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 4px !important;

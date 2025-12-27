@@ -48,11 +48,11 @@
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -2.25px !important;
+    right: -3px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     width: 2px !important;
-    height: 6px !important;
+    height: 4px !important;
     background: var(--mbt-tip-color, #ffffff) !important;
     border-radius: 0 1.5px 1.5px 0 !important;
     opacity: 1 !important;
