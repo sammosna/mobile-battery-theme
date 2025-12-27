@@ -8,7 +8,9 @@
 
 A CSS Loader theme for Steam Deck that replaces the default battery icon with customizable battery indicators inspired by Android, iOS, and macOS designs.
 
-![Preview](screenshots/preview.png)
+<p align="center">
+  <img src="screenshots/battery-styles.png" alt="Battery Styles Preview" />
+</p>
 
 ## Battery Styles
 
