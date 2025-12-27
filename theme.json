@@ -10,7 +10,7 @@
     },
     "patches": {
         "Battery Style": {
-            "default": "Android 16 Vertical",
+            "default": "Android 16 Vertical ║",
             "type": "dropdown",
             "values": {
                 "Android 16 Horizontal ═══╤": { "styles/android16-horizontal.css": ["SP", "QuickAccess", "MainMenu"] },
