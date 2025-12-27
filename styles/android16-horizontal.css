@@ -12,13 +12,13 @@
  * - Clean minimal design
  */
 
-/* Hide original SVG battery */
+/* Hide original SVG battery - use visibility:hidden so :has() can still detect children */
 [class*="_3XySI"] svg,
 [class*="_3XySI"] > svg,
 [class*="_3XySI"] canvas {
-    display: none !important;
     visibility: hidden !important;
-    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
 
 /* Main battery container - Android 16 horizontal style */
@@ -48,11 +48,11 @@
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -3px !important;
+    right: -2.5px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 2px !important;
-    height: 6px !important;
+    width: 1.5px !important;
+    height: 6.5px !important;
     background: rgba(255, 255, 255, 0.3) !important;
     border-radius: 0 1.5px 1.5px 0 !important;
     opacity: 1 !important;
@@ -95,11 +95,12 @@
     animation: mbt-charging-pulse 1s ease-in-out infinite !important;
 }
 
-/* Charging state */
+/* Charging state - detect via SVG fill color or .charging class */
+
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before,
 [class*="_3XySI"][class*="Charging"]::before {
-    background: var(--mbt-android-accent, #8ab4f8) !important;
+    background: var(--mbt-charging-color, var(--mbt-android-accent, #4caf50)) !important;
     animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
 }
 

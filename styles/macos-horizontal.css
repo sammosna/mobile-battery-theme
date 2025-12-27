@@ -13,13 +13,13 @@
  * - Clean minimal macOS aesthetic
  */
 
-/* Hide original SVG battery */
+/* Hide original SVG battery - use visibility:hidden so :has() can still detect children */
 [class*="_3XySI"] svg,
 [class*="_3XySI"] > svg,
 [class*="_3XySI"] canvas {
-    display: none !important;
     visibility: hidden !important;
-    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
 
 /* Main battery container - macOS style */
@@ -69,19 +69,19 @@
 }
 
 /* Charging - green */
+
 [class*="_3XySI"][class*="Charging"]::before,
-[class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"][class*="Charging"]::before {
-    background: #30d158 !important;
+[class*="_3XySI"][class*="charging"]::before {
+    background: var(--mbt-charging-color, #30d158) !important;
 }
+
 [class*="_3XySI"][class*="Charging"],
-[class*="_3XySI"][class*="charging"],
-[class*="_3XySI"][class*="Charging"] {
+[class*="_3XySI"][class*="charging"] {
     background: rgba(48, 209, 88, 0.25) !important;
 }
+
 [class*="_3XySI"][class*="Charging"]::after,
-[class*="_3XySI"][class*="charging"]::after,
-[class*="_3XySI"][class*="Charging"]::after {
+[class*="_3XySI"][class*="charging"]::after {
     background: rgba(48, 209, 88, 0.5) !important;
 }
 

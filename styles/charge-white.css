@@ -1,0 +1,4 @@
+/* Charging Color Override - White */
+:root {
+    --mbt-charging-color: #ffffff;
+}

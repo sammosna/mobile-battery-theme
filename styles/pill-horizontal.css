@@ -9,13 +9,13 @@
  * - No tip/nub (modern minimal look)
  */
 
-/* Hide original SVG battery */
+/* Hide original SVG battery - use visibility:hidden so :has() can still detect children */
 [class*="_3XySI"] svg,
 [class*="_3XySI"] > svg,
 [class*="_3XySI"] canvas {
-    display: none !important;
     visibility: hidden !important;
-    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
 
 /* Main battery container - horizontal pill shape */
@@ -57,15 +57,15 @@
 }
 
 /* Charging - green gradient */
+
 [class*="_3XySI"][class*="Charging"]::before,
-[class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"][class*="Charging"]::before {
-    background: linear-gradient(to right, #2ecc71, #58d68d) !important;
+[class*="_3XySI"][class*="charging"]::before {
+    background: var(--mbt-charging-color, linear-gradient(to right, #2ecc71, #58d68d)) !important;
 }
+
 [class*="_3XySI"][class*="Charging"],
-[class*="_3XySI"][class*="charging"],
-[class*="_3XySI"][class*="Charging"] {
-    border-color: #2ecc71 !important;
+[class*="_3XySI"][class*="charging"] {
+    border-color: var(--mbt-charging-color, #2ecc71) !important;
 }
 
 /* Low battery - yellow/orange gradient */

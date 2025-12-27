@@ -6,13 +6,13 @@
  * - Nub color: rgba(255, 255, 255, 0.3)
  */
 
-/* Hide original SVG battery */
+/* Hide original SVG battery - use visibility:hidden so :has() can still detect children */
 [class*="_3XySI"] svg,
 [class*="_3XySI"] > svg,
 [class*="_3XySI"] canvas {
-    display: none !important;
     visibility: hidden !important;
-    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
 }
 
 /* Main battery container */
@@ -21,7 +21,7 @@
     width: 22px !important;
     height: 14px !important;
     background: transparent !important;
-    border: 1.5px solid #FFFFFF !important;
+    border: 1.5px solid var(--mbt-border-color, #FFFFFF) !important;
     border-radius: 2.5px !important;
     display: flex !important;
     align-items: center !important;
@@ -41,7 +41,7 @@
     transform: translateY(-50%) !important;
     width: 2px !important;
     height: 6px !important;
-    background: #FFFFFF !important;
+    background: var(--mbt-tip-color, var(--mbt-border-color, #FFFFFF)) !important;
     border-radius: 0 1px 1px 0 !important;
 }
 
@@ -54,24 +54,27 @@
     bottom: 1px !important;
     z-index: 1 !important;
     width: calc(85% - 2px) !important;
-    background: #FFFFFF !important;
+    background: var(--mbt-fill-color, #FFFFFF) !important;
     border-radius: 1.5px !important;
     transition: width 0.3s ease, background 0.3s ease !important;
 }
 
 /* Charging state - green fill with lightning bolt */
+
 [class*="_3XySI"].charging,
 [class*="_3XySI"][class*="charging"],
 [class*="_3XySI"][class*="Charging"] {
-    border-color: #34c759 !important;
+    border-color: var(--mbt-charging-color, #34c759) !important;
 }
+
 
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before,
 [class*="_3XySI"][class*="Charging"]::before {
-    background: #34c759 !important;
+    background: var(--mbt-charging-color, #34c759) !important;
     width: calc(100% - 2px) !important;
 }
+
 
 [class*="_3XySI"].charging::after,
 [class*="_3XySI"][class*="charging"]::after,

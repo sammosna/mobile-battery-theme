@@ -1,0 +1,4 @@
+/* Charging Color Override - Yellow */
+:root {
+    --mbt-charging-color: #ffeb3b;
+}

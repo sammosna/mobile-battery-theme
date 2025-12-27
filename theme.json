@@ -1,6 +1,6 @@
 {
     "name": "Mobile Battery Theme",
-    "version": "v3.1.0",
+    "version": "v3.5.0a",
     "author": "NoDataFound",
     "target": "Snippet",
     "description": "iOS/Android/macOS style batteries with percentage display, charging animations, and smart color overrides.",
@@ -28,51 +28,42 @@
             }
         },
         "Fill Color": {
-            "default": "White",
+            "default": "⚪ White",
             "type": "dropdown",
             "values": {
-                "White": {},
-                "Red": { "styles/color-red.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Orange": { "styles/color-orange.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Amber": { "styles/color-amber.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Yellow": { "styles/color-yellow.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Lime": { "styles/color-lime.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Green": { "styles/color-green.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Emerald": { "styles/color-emerald.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Teal": { "styles/color-teal.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Cyan": { "styles/color-cyan.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Sky": { "styles/color-sky.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Blue": { "styles/color-blue.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Indigo": { "styles/color-indigo.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Violet": { "styles/color-violet.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Purple": { "styles/color-purple.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Magenta": { "styles/color-magenta.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Pink": { "styles/color-pink.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Rose": { "styles/color-rose.css": ["SP", "QuickAccess", "MainMenu"] }
+                "⚪ White": {},
+                "🔴 Red": { "styles/color-red.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟠 Orange": { "styles/color-orange.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟡 Amber": { "styles/color-amber.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟡 Yellow": { "styles/color-yellow.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟢 Lime": { "styles/color-lime.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟢 Green": { "styles/color-green.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟢 Emerald": { "styles/color-emerald.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🔵 Teal": { "styles/color-teal.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🔵 Cyan": { "styles/color-cyan.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🔵 Sky": { "styles/color-sky.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🔵 Blue": { "styles/color-blue.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Indigo": { "styles/color-indigo.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Violet": { "styles/color-violet.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Purple": { "styles/color-purple.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Magenta": { "styles/color-magenta.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Pink": { "styles/color-pink.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Rose": { "styles/color-rose.css": ["SP", "QuickAccess", "MainMenu"] }
             }
         },
         "Border Color": {
-            "default": "White (Match Fill)",
+            "default": "⚪ White",
             "type": "dropdown",
             "values": {
-                "White (Match Fill)": {},
-                "Red": { "styles/border-red.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Orange": { "styles/border-orange.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Yellow": { "styles/border-yellow.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Green": { "styles/border-green.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Cyan": { "styles/border-cyan.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Blue": { "styles/border-blue.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Purple": { "styles/border-purple.css": ["SP", "QuickAccess", "MainMenu"] },
-                "Pink": { "styles/border-pink.css": ["SP", "QuickAccess", "MainMenu"] },
-                "White": { "styles/border-white.css": ["SP", "QuickAccess", "MainMenu"] }
-            }
-        },
-        "Show Percentage": {
-            "default": "Yes (Inside Battery)",
-            "type": "dropdown",
-            "values": {
-                "Yes (Inside Battery)": { "styles/show-percentage.css": ["SP", "QuickAccess", "MainMenu"] },
-                "No": { "styles/hide-percentage.css": ["SP", "QuickAccess", "MainMenu"] }
+                "⚪ White": {},
+                "🔴 Red": { "styles/border-red.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟠 Orange": { "styles/border-orange.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟡 Yellow": { "styles/border-yellow.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟢 Green": { "styles/border-green.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🔵 Cyan": { "styles/border-cyan.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🔵 Blue": { "styles/border-blue.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Purple": { "styles/border-purple.css": ["SP", "QuickAccess", "MainMenu"] },
+                "🟣 Pink": { "styles/border-pink.css": ["SP", "QuickAccess", "MainMenu"] }
             }
         }
     }

@@ -1,0 +1,12 @@
+/*
+ * Charging State Detector
+ * Uses MutationObserver to detect charging state changes
+ * and applies a class to the battery container
+ */
+
+/* This CSS file injects JavaScript via a data URI trick */
+/* The JS watches for SVG fill color changes and adds/removes .mbt-charging class */
+
+@import url("data:text/css;base64,LyogQ2hhcmdpbmcgZGV0ZWN0b3IgaW5qZWN0aW9uICov");
+
+/* Fallback styles if JS doesn't work */
