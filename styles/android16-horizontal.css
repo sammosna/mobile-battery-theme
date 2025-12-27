@@ -1,18 +1,15 @@
 /*
  * Android 16 Horizontal Battery Style
  *
- * Material You design with percentage inside:
+ * Material You design with pill shape:
  * ╭──────────────╮
- * │ 87  ████████ ├─┐ ⚡ (lightning when charging)
- * ╰──────────────╯─┘
- *        ↑ 0.5px separator
+ * │ ████████░░░░ ├╮
+ * ╰──────────────╯╯
  *
  * Features:
- * - Percentage displayed inside battery
- * - Lightning bolt when charging
- * - 0.5px separator between tip and body
- * - Green override when charging
- * - Yellow override when low battery
+ * - Pill-shaped container
+ * - Material You aesthetics
+ * - Clean minimal design
  */
 
 /* Hide original SVG battery */
@@ -25,115 +22,95 @@
 }
 
 /* Main battery container - Android 16 horizontal style */
+/* Canvas: 24x14 (12:7 ratio ~1.71:1), scaled to 20x12 */
 [class*="_3XySI"] {
     position: relative !important;
-    width: 40px !important;
-    height: 20px !important;
+    width: 20px !important;
+    height: 12px !important;
     background: rgba(255, 255, 255, 0.3) !important;
     border: none !important;
-    border-radius: 4px !important;
+
+    /* Rounded rectangle - more pill-like */
+    border-radius: 3px !important;
+
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
     padding: 0 !important;
     box-sizing: border-box !important;
     margin-right: 4px !important;
+
+    /* Clean look */
     box-shadow: none !important;
     overflow: visible !important;
 }
 
-/* Battery tip - right side with 0.5px separator gap */
+/* Battery tip - right side */
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -4px !important;
+    right: -2px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 3px !important;
-    height: 10px !important;
+    width: 2px !important;
+    height: 6px !important;
     background: rgba(255, 255, 255, 0.3) !important;
-    border-radius: 0 2px 2px 0 !important;
-    /* 0.5px separator line at left of tip */
-    box-shadow: -0.5px 0 0 0 rgba(0, 0, 0, 0.3) !important;
+    border-radius: 0 1.5px 1.5px 0 !important;
+    opacity: 1 !important;
 }
 
-/* Battery fill level - uses --battery-perc from Steam Deck */
+/* Battery fill level - fills from left to right */
 [class*="_3XySI"]::before {
     content: '' !important;
     position: absolute !important;
-    left: 2px !important;
-    top: 2px !important;
-    bottom: 2px !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
     z-index: 1 !important;
-    /* Use actual battery percentage from Steam Deck */
-    width: calc(var(--battery-perc, 75) * 1% - 4px) !important;
-    max-width: calc(100% - 4px) !important;
+
+    /* Default 75% fill */
+    width: 75% !important;
+    max-width: 100% !important;
+
+    /* Fill color from variable */
     background: var(--mbt-fill-color, #ffffff) !important;
-    border-radius: 2px !important;
-    transition: width 0.3s ease, background 0.3s ease !important;
+
+    /* Match container rounding on left */
+    border-radius: 3px !important;
+
+    transition: width var(--mbt-transition-speed) var(--mbt-transition-easing),
+                background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════
- * CHARGING STATE - Green with lightning bolt
- * ═══════════════════════════════════════════════════════════════ */
-
-/* Charging - pale green fill override */
-[class*="_3XySI"][class*="Charging"]::before,
-[class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"].charging::before {
-    background: #7dd891 !important; /* pale green */
-    animation: mbt-charging-pulse 2s ease-in-out infinite !important;
+/* Low battery - Android uses orange */
+[class*="_3XySI"].low::before,
+[class*="_3XySI"][class*="low"]::before {
+    background: #f9a825 !important;
+    width: calc(20% - 2px) !important;
 }
 
-/* Charging container gets dark green background like iOS */
-[class*="_3XySI"][class*="Charging"],
-[class*="_3XySI"][class*="charging"],
-[class*="_3XySI"].charging {
-    background: rgba(52, 199, 89, 0.25) !important;
+/* Critical battery */
+[class*="_3XySI"].critical::before,
+[class*="_3XySI"][class*="critical"]::before {
+    background: #d32f2f !important;
+    animation: mbt-charging-pulse 1s ease-in-out infinite !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════
- * LOW BATTERY STATE - Yellow/Orange override
- * ═══════════════════════════════════════════════════════════════ */
-
-/* Low battery - pale yellow fill override (under 20%) */
-[class*="_3XySI"][class*="Low"]::before,
-[class*="_3XySI"][class*="low"]::before,
-[class*="_3XySI"].low::before {
-    background: #ffd666 !important; /* pale yellow/amber */
+/* Charging state */
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before {
+    background: var(--mbt-android-accent, #8ab4f8) !important;
+    animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
 }
 
-/* Critical battery - pale red (under 10%) */
-[class*="_3XySI"][class*="Critical"]::before,
-[class*="_3XySI"][class*="critical"]::before,
-[class*="_3XySI"].critical::before {
-    background: #ff8a80 !important; /* pale red */
-    animation: mbt-critical-pulse 1s ease-in-out infinite !important;
+/* Battery saver mode */
+[class*="_3XySI"].saver::before,
+[class*="_3XySI"][class*="saver"]::before {
+    background: #ff6f00 !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════
- * ANIMATIONS
- * ═══════════════════════════════════════════════════════════════ */
-
-@keyframes mbt-charging-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-@keyframes mbt-critical-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-/* ═══════════════════════════════════════════════════════════════
- * LIGHTNING BOLT (Charging indicator)
- * Uses a sibling element or custom content
- * ═══════════════════════════════════════════════════════════════ */
-
-/* Lightning bolt shown via the parent container when charging */
-[class*="_3XySI"][class*="Charging"] ~ [class*="bolt"],
-[class*="_3XySI"][class*="charging"] ~ [class*="bolt"],
-[class*="_3XySI"].charging ~ [class*="bolt"] {
-    display: block !important;
-    color: #34c759 !important;
+/* Full battery */
+[class*="_3XySI"].full::before,
+[class*="_3XySI"][class*="full"]::before {
+    width: calc(100% - 2px) !important;
+    background: var(--mbt-fill-color, #ffffff) !important;
 }

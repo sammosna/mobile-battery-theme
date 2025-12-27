@@ -1,17 +1,15 @@
 /*
  * iOS 26 Horizontal Battery Style
  *
- * Classic iPhone battery with outline border:
- * ╭──────────────╮
- * │ ⚡████████░░░ ├─╮
- * ╰──────────────╯─╯
+ * Modern iOS battery design:
+ * ╭──────────────╮╮
+ * │ ████████░░░░ ││
+ * ╰──────────────╯╯
  *
  * Features:
- * - Outline border (not solid)
- * - Fill inside border with gap
- * - Lightning bolt inside when charging
- * - Color-coded: Green (charging), Yellow (medium), Orange (low), Red (critical)
- * - Border color matches fill color per state
+ * - Rounded rectangle with smooth corners
+ * - Clean minimal design
+ * - Small rounded tip on right side
  */
 
 /* Hide original SVG battery */
@@ -24,134 +22,89 @@
 }
 
 /* Main battery container - iOS 26 horizontal style */
+/* Same size as Android but with outline style */
 [class*="_3XySI"] {
     position: relative !important;
-    width: 40px !important;
-    height: 18px !important;
+    width: 20px !important;
+    height: 12px !important;
     background: transparent !important;
-    /* Outline border */
-    border: 1.5px solid var(--mbt-fill-color, #ffffff) !important;
-    border-radius: 5px !important;
+    border: 1px solid var(--mbt-border-color, #ffffff) !important;
+
+    /* Rounded rectangle - match Android */
+    border-radius: 3px !important;
+
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
     padding: 0 !important;
     box-sizing: border-box !important;
     margin-right: 4px !important;
+
+    /* Clean look */
     box-shadow: none !important;
     overflow: visible !important;
 }
 
-/* Battery tip - right side (solid, matches border) */
+/* Battery tip - right side */
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -4px !important;
+    right: -2px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 3px !important;
-    height: 8px !important;
-    background: var(--mbt-fill-color, #ffffff) !important;
-    border-radius: 0 2px 2px 0 !important;
+    width: 2px !important;
+    height: 6px !important;
+    background: var(--mbt-tip-color, #ffffff) !important;
+    border-radius: 0 1.5px 1.5px 0 !important;
+    opacity: 1 !important;
 }
 
-/* Battery fill level - inside the border with gap */
+/* Battery fill level */
 [class*="_3XySI"]::before {
     content: '' !important;
     position: absolute !important;
-    left: 2px !important;
-    top: 2px !important;
-    bottom: 2px !important;
+    left: 1px !important;
+    top: 1px !important;
+    bottom: 1px !important;
     z-index: 1 !important;
-    /* Use actual battery percentage from Steam Deck */
-    width: calc(var(--battery-perc, 75) * 1% - 6px) !important;
-    max-width: calc(100% - 6px) !important;
+
+    /* Default 75% fill - starts from left, grows right */
+    width: calc(75% - 2px) !important;
+    max-width: calc(100% - 2px) !important;
+
+    /* Fill color from variable */
     background: var(--mbt-fill-color, #ffffff) !important;
+
+    /* Minimal rounding */
     border-radius: 2px !important;
-    transition: width 0.3s ease, background 0.3s ease !important;
+
+    transition: width var(--mbt-transition-speed) var(--mbt-transition-easing),
+                background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════
- * CHARGING STATE - Green with lightning bolt inside
- * ═══════════════════════════════════════════════════════════════ */
-
-/* Charging - green fill */
-[class*="_3XySI"][class*="Charging"]::before,
-[class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"].charging::before {
-    background: #4cd964 !important; /* iOS green */
-}
-
-/* Charging - green border */
-[class*="_3XySI"][class*="Charging"],
-[class*="_3XySI"][class*="charging"],
-[class*="_3XySI"].charging {
-    border-color: #4cd964 !important;
-}
-
-/* Charging - green tip */
-[class*="_3XySI"][class*="Charging"]::after,
-[class*="_3XySI"][class*="charging"]::after,
-[class*="_3XySI"].charging::after {
-    background: #4cd964 !important;
-}
-
-/* ═══════════════════════════════════════════════════════════════
- * LOW BATTERY STATE - Yellow/Orange
- * ═══════════════════════════════════════════════════════════════ */
-
-/* Low battery - yellow/orange fill (under 20%) */
-[class*="_3XySI"][class*="Low"]::before,
-[class*="_3XySI"][class*="low"]::before,
-[class*="_3XySI"].low::before {
-    background: #ffcc00 !important; /* iOS yellow */
-}
-
-/* Low battery - yellow border */
-[class*="_3XySI"][class*="Low"],
-[class*="_3XySI"][class*="low"],
-[class*="_3XySI"].low {
-    border-color: #ffcc00 !important;
-}
-
-/* Low battery - yellow tip */
-[class*="_3XySI"][class*="Low"]::after,
-[class*="_3XySI"][class*="low"]::after,
-[class*="_3XySI"].low::after {
-    background: #ffcc00 !important;
-}
-
-/* ═══════════════════════════════════════════════════════════════
- * CRITICAL BATTERY STATE - Red
- * ═══════════════════════════════════════════════════════════════ */
-
-/* Critical battery - red fill (under 10%) */
-[class*="_3XySI"][class*="Critical"]::before,
-[class*="_3XySI"][class*="critical"]::before,
-[class*="_3XySI"].critical::before {
-    background: #ff3b30 !important; /* iOS red */
-    animation: mbt-critical-pulse 1s ease-in-out infinite !important;
-}
-
-/* Critical battery - red border */
-[class*="_3XySI"][class*="Critical"],
-[class*="_3XySI"][class*="critical"],
-[class*="_3XySI"].critical {
-    border-color: #ff3b30 !important;
-}
-
-/* Critical battery - red tip */
-[class*="_3XySI"][class*="Critical"]::after,
-[class*="_3XySI"][class*="critical"]::after,
-[class*="_3XySI"].critical::after {
+/* Low battery */
+[class*="_3XySI"].low::before,
+[class*="_3XySI"][class*="low"]::before {
     background: #ff3b30 !important;
+    width: calc(20% - 2px) !important;
 }
 
-/* ═══════════════════════════════════════════════════════════════
- * ANIMATIONS
- * ═══════════════════════════════════════════════════════════════ */
+/* Critical battery */
+[class*="_3XySI"].critical::before,
+[class*="_3XySI"][class*="critical"]::before {
+    background: #ff2d55 !important;
+    animation: mbt-charging-pulse 1s ease-in-out infinite !important;
+}
 
-@keyframes mbt-critical-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+/* Charging state */
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before {
+    background: #34c759 !important;
+    animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
+}
+
+/* Full battery */
+[class*="_3XySI"].full::before,
+[class*="_3XySI"][class*="full"]::before {
+    width: calc(100% - 2px) !important;
+    background: var(--mbt-fill-color, #ffffff) !important;
 }
