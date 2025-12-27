@@ -55,8 +55,8 @@
     top: -3px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 4px !important;
-    height: 2px !important;
+    width: 3px !important;
+    height: 1px !important;
     background: rgba(255, 255, 255, 0.3) !important;
     border-radius: 1px 1px 0 0 !important;
     opacity: 1 !important;
