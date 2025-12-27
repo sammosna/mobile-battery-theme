@@ -1,9 +1,13 @@
 /*
- * iOS 26 Horizontal Battery Style
+ * Android 16 v2 Vertical Battery Style
  *
- * Based on Android 16 v2 with:
- * - Gap between body and nub (same size as border)
- * - Nub color: rgba(255, 255, 255, 0.3)
+ * Exact spec from reference (rotated 90deg):
+ * - Body: 10px x 22px
+ * - Border: 1.5px #FFFFFF stroke
+ * - Corner radius: 2.5px
+ * - Nub: 4px x 2px, flush to top edge
+ * - Fill: 1px inset from border
+ * - Lightning bolt when charging
  */
 
 /* Hide original SVG battery */
@@ -18,31 +22,32 @@
 /* Main battery container */
 [class*="_3XySI"] {
     position: relative !important;
-    width: 22px !important;
-    height: 14px !important;
+    width: 14px !important;
+    height: 20px !important;
     background: transparent !important;
     border: 1.5px solid #FFFFFF !important;
     border-radius: 2.5px !important;
     display: flex !important;
-    align-items: center !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    margin-right: 2px !important;
+    margin-top: 2px !important;
     box-shadow: none !important;
     overflow: visible !important;
 }
 
-/* Battery nub - with gap (1.5px border + 1.5px gap = 3px from edge, then 1.5px more = -4.5px) */
+/* Battery nub - 4px x 2px, flush to top edge */
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -4px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 2px !important;
-    height: 6px !important;
+    top: -3.5px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 6px !important;
+    height: 2px !important;
     background: #FFFFFF !important;
-    border-radius: 0 1px 1px 0 !important;
+    border-radius: 1px 1px 0 0 !important;
 }
 
 /* Battery fill - 1px inset from border */
@@ -50,38 +55,38 @@
     content: '' !important;
     position: absolute !important;
     left: 1px !important;
-    top: 1px !important;
+    right: 1px !important;
     bottom: 1px !important;
     z-index: 1 !important;
-    width: calc(85% - 2px) !important;
+    height: calc(85% - 2px) !important;
     background: #FFFFFF !important;
     border-radius: 1.5px !important;
-    transition: width 0.3s ease, background 0.3s ease !important;
+    transition: height 0.3s ease, background 0.3s ease !important;
 }
 
 /* Charging state - green fill with lightning bolt */
 [class*="_3XySI"].charging,
 [class*="_3XySI"][class*="charging"],
 [class*="_3XySI"][class*="Charging"] {
-    border-color: #34c759 !important;
+    border-color: #4caf50 !important;
 }
 
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before,
 [class*="_3XySI"][class*="Charging"]::before {
-    background: #34c759 !important;
-    width: calc(100% - 2px) !important;
+    background: #4caf50 !important;
+    height: calc(100% - 2px) !important;
 }
 
 [class*="_3XySI"].charging::after,
 [class*="_3XySI"][class*="charging"]::after,
 [class*="_3XySI"][class*="Charging"]::after {
     /* Lightning bolt using clip-path */
-    right: 50% !important;
     top: 50% !important;
-    transform: translate(50%, -50%) !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     width: 10px !important;
-    height: 12px !important;
+    height: 14px !important;
     background: #FFFFFF !important;
     border-radius: 0 !important;
     z-index: 10 !important;
@@ -99,7 +104,7 @@
 [class*="_3XySI"].low::before,
 [class*="_3XySI"][class*="low"]::before {
     background: #ff9800 !important;
-    width: calc(20% - 2px) !important;
+    height: calc(20% - 2px) !important;
 }
 [class*="_3XySI"].low,
 [class*="_3XySI"][class*="low"] {
@@ -120,7 +125,7 @@
 /* Full battery */
 [class*="_3XySI"].full::before,
 [class*="_3XySI"][class*="full"]::before {
-    width: calc(100% - 2px) !important;
+    height: calc(100% - 2px) !important;
 }
 
 @keyframes mbt-critical-pulse {

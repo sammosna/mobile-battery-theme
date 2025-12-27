@@ -25,8 +25,8 @@
 /* Canvas: 24x14 (12:7 ratio ~1.71:1), scaled to 20x12 */
 [class*="_3XySI"] {
     position: relative !important;
-    width: 20px !important;
-    height: 12px !important;
+    width: 22px !important;
+    height: 14px !important;
     background: rgba(255, 255, 255, 0.3) !important;
     border: none !important;
 
@@ -51,8 +51,8 @@
     right: -3px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 1px !important;
-    height: 5px !important;
+    width: 2px !important;
+    height: 6px !important;
     background: rgba(255, 255, 255, 0.3) !important;
     border-radius: 0 1.5px 1.5px 0 !important;
     opacity: 1 !important;

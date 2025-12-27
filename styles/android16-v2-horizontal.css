@@ -1,9 +1,13 @@
 /*
- * iOS 26 Horizontal Battery Style
+ * Android 16 v2 Horizontal Battery Style
  *
- * Based on Android 16 v2 with:
- * - Gap between body and nub (same size as border)
- * - Nub color: rgba(255, 255, 255, 0.3)
+ * Exact spec from reference:
+ * - Body: 22px x 10px
+ * - Border: 1.5px #FFFFFF stroke
+ * - Corner radius: 2.5px
+ * - Nub: 2px x 4px, flush to right edge
+ * - Fill: 1px inset from border
+ * - Lightning bolt when charging
  */
 
 /* Hide original SVG battery */
@@ -32,11 +36,11 @@
     overflow: visible !important;
 }
 
-/* Battery nub - with gap (1.5px border + 1.5px gap = 3px from edge, then 1.5px more = -4.5px) */
+/* Battery nub - 2px x 4px, flush to right edge */
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -4px !important;
+    right: -3.5px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     width: 2px !important;
@@ -63,13 +67,13 @@
 [class*="_3XySI"].charging,
 [class*="_3XySI"][class*="charging"],
 [class*="_3XySI"][class*="Charging"] {
-    border-color: #34c759 !important;
+    border-color: #4caf50 !important;
 }
 
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before,
 [class*="_3XySI"][class*="Charging"]::before {
-    background: #34c759 !important;
+    background: #4caf50 !important;
     width: calc(100% - 2px) !important;
 }
 

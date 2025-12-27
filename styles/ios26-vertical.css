@@ -1,13 +1,9 @@
 /*
  * iOS 26 Vertical Battery Style
  *
- * Modern iOS battery design (vertical):
- *    ╭─╮
- *  ╭─┴─╮
- *  │███│
- *  │███│
- *  │░░░│
- *  ╰───╯
+ * Based on Android 16 v2 with:
+ * - Gap between body and nub (same size as border)
+ * - Nub color: rgba(255, 255, 255, 0.3)
  */
 
 /* Hide original SVG battery */
@@ -19,73 +15,116 @@
     opacity: 0 !important;
 }
 
-/* Main battery container - iOS style */
+/* Main battery container */
 [class*="_3XySI"] {
     position: relative !important;
-    width: 10px !important;
-    height: 16px !important;
+    width: 14px !important;
+    height: 18px !important;
     background: transparent !important;
-    border: 1.5px solid var(--mbt-border-color, rgba(255, 255, 255, 0.4)) !important;
-    border-radius: 3px !important;
+    border: 1.5px solid #FFFFFF !important;
+    border-radius: 2.5px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    margin-top: 3px !important;
+    margin-top: 2px !important;
     box-shadow: none !important;
     overflow: visible !important;
 }
 
-/* Battery tip - small rounded nub on top */
+/* Battery nub - with gap (1.5px border + 1.5px gap = 3px from edge, then 1.5px more = -5px) */
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    top: -3px !important;
+    top: -4px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 5px !important;
-    height: 1px !important;
-    background: var(--mbt-border-color, rgba(255, 255, 255, 0.4)) !important;
+    width: 6px !important;
+    height: 2px !important;
+    background: #FFFFFF !important;
     border-radius: 1px 1px 0 0 !important;
 }
 
-/* Battery fill level */
+/* Battery fill - 1px inset from border */
 [class*="_3XySI"]::before {
     content: '' !important;
     position: absolute !important;
-    left: 2px !important;
-    right: 2px !important;
-    bottom: 2px !important;
-    top: 2px !important;
+    left: 1px !important;
+    right: 1px !important;
+    bottom: 1px !important;
     z-index: 1 !important;
-    background: var(--mbt-fill-color, #ffffff) !important;
-    border-radius: 1px !important;
-    transition: background 0.3s ease !important;
+    height: calc(85% - 2px) !important;
+    background: #FFFFFF !important;
+    border-radius: 1.5px !important;
+    transition: height 0.3s ease, background 0.3s ease !important;
 }
 
-/* Low battery - red fill */
+/* Charging state - green fill with lightning bolt */
+[class*="_3XySI"].charging,
+[class*="_3XySI"][class*="charging"],
+[class*="_3XySI"][class*="Charging"] {
+    border-color: #34c759 !important;
+}
+
+[class*="_3XySI"].charging::before,
+[class*="_3XySI"][class*="charging"]::before,
+[class*="_3XySI"][class*="Charging"]::before {
+    background: #34c759 !important;
+    height: calc(100% - 2px) !important;
+}
+
+[class*="_3XySI"].charging::after,
+[class*="_3XySI"][class*="charging"]::after,
+[class*="_3XySI"][class*="Charging"]::after {
+    /* Lightning bolt using clip-path */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 10px !important;
+    height: 14px !important;
+    background: #FFFFFF !important;
+    border-radius: 0 !important;
+    z-index: 10 !important;
+    clip-path: polygon(
+        60% 0%,
+        20% 45%,
+        45% 45%,
+        40% 100%,
+        80% 50%,
+        55% 50%
+    ) !important;
+}
+
+/* Low battery - orange */
 [class*="_3XySI"].low::before,
 [class*="_3XySI"][class*="low"]::before {
-    background: #ff3b30 !important;
+    background: #ff9800 !important;
+    height: calc(20% - 2px) !important;
+}
+[class*="_3XySI"].low,
+[class*="_3XySI"][class*="low"] {
+    border-color: #ff9800 !important;
 }
 
 /* Critical battery - red with pulse */
 [class*="_3XySI"].critical::before,
 [class*="_3XySI"][class*="critical"]::before {
-    background: #ff3b30 !important;
-    animation: mbt-charging-pulse 1s ease-in-out infinite !important;
+    background: #f44336 !important;
+    animation: mbt-critical-pulse 1s ease-in-out infinite !important;
 }
-
-/* Charging state - green fill */
-[class*="_3XySI"].charging::before,
-[class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"][class*="Charging"]::before {
-    background: #34c759 !important;
+[class*="_3XySI"].critical,
+[class*="_3XySI"][class*="critical"] {
+    border-color: #f44336 !important;
 }
 
 /* Full battery */
 [class*="_3XySI"].full::before,
 [class*="_3XySI"][class*="full"]::before {
-    background: var(--mbt-fill-color, #ffffff) !important;
+    height: calc(100% - 2px) !important;
+}
+
+@keyframes mbt-critical-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
