@@ -101,7 +101,8 @@
 
 /* Charging state */
 [class*="_3XySI"].charging::before,
-[class*="_3XySI"][class*="charging"]::before {
+[class*="_3XySI"][class*="charging"]::before,
+[class*="_3XySI"][class*="Charging"]::before {
     background: var(--mbt-android-accent, #8ab4f8) !important;
     animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
 }

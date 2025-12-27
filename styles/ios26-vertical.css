@@ -79,7 +79,8 @@
 
 /* Charging state - green fill */
 [class*="_3XySI"].charging::before,
-[class*="_3XySI"][class*="charging"]::before {
+[class*="_3XySI"][class*="charging"]::before,
+[class*="_3XySI"][class*="Charging"]::before {
     background: #34c759 !important;
 }
 
