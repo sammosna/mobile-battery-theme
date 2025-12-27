@@ -48,7 +48,7 @@
 [class*="_3XySI"]::after {
     content: '' !important;
     position: absolute !important;
-    right: -2.5px !important;
+    right: -3px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     width: 2px !important;
