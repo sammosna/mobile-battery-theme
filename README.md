@@ -12,48 +12,6 @@ A CSS Loader theme for Steam Deck that replaces the default battery icon with cu
   <img src="screenshots/battery-styles.png" alt="Battery Styles Preview" />
 </p>
 
-## Battery Styles
-
-### Android 16 (Filled Background)
-```
-Vertical:           Horizontal:
-   ╭─╮              ╭──────────────╮
- ╭─┴─╮              │ ████████░░░░ ├╮
- │███│              ╰──────────────╯╯
- │███│
- │░░░│
- ╰───╯
-```
-Semi-transparent filled background with solid fill indicator.
-
-### Android 16 v2 (Outlined)
-```
-Vertical:           Horizontal:
-   ╭─╮              ┌──────────────┐
- ┌─┴─┐              │ ████████░░░░ ├─
- │███│              └──────────────┘
- │███│
- │░░░│
- └───┘
-```
-Outlined border style with lightning bolt when charging.
-
-### iOS 26
-```
-Vertical:           Horizontal:
-   ╷                ┌──────────────┐
- ┌─┴─┐              │ ████████░░░░ ├╴
- │███│              └──────────────┘
- │███│
- │░░░│
- └───┘
-```
-iOS-style with separated nub and lightning bolt when charging.
-
-### Additional Styles
-- **macOS Horizontal/Vertical** - macOS-inspired design
-- **Pill Horizontal/Vertical** - Rounded pill shape
-- **Segmented Horizontal/Vertical** - Segmented battery indicator
 
 ## Features
 
