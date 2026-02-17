@@ -103,7 +103,8 @@
 
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"][class*="Charging"]::before {
+[class*="_3XySI"][class*="Charging"]::before,
+[class*="_3XySI"]:has([d="M16 20L21 11V16H26L21 25V20H16Z"])::before {
     background: var(--mbt-charging-color, var(--mbt-android-accent, #4caf50)) !important;
     animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
 }

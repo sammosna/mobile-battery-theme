@@ -1,6 +1,6 @@
 {
     "name": "Mobile Battery Theme",
-    "version": "v3.5.0a",
+    "version": "v3.5.1",
     "author": "NoDataFound",
     "target": "Snippet",
     "description": "iOS/Android/macOS style batteries with percentage display, charging animations, and smart color overrides.",

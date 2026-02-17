@@ -14,7 +14,7 @@
 
 /* Hide original SVG battery - use visibility:hidden so :has() can still detect children */
 [class*="_3XySI"] svg,
-[class*="_3XySI"] > svg,
+[class*="_3XySI"]>svg,
 [class*="_3XySI"] canvas {
     visibility: hidden !important;
     position: absolute !important;
@@ -78,7 +78,7 @@
     border-radius: 2.9px !important;
 
     transition: width var(--mbt-transition-speed) var(--mbt-transition-easing),
-                background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
+        background var(--mbt-transition-speed) var(--mbt-transition-easing) !important;
 }
 
 /* Low battery - Android uses orange */
@@ -99,7 +99,8 @@
 
 [class*="_3XySI"].charging::before,
 [class*="_3XySI"][class*="charging"]::before,
-[class*="_3XySI"][class*="Charging"]::before {
+[class*="_3XySI"][class*="Charging"]::before,
+[class*="_3XySI"]:has([d="M16 20L21 11V16H26L21 25V20H16Z"])::before {
     background: var(--mbt-charging-color, var(--mbt-android-accent, #4caf50)) !important;
     animation: mbt-charging-pulse var(--mbt-pulse-duration) ease-in-out infinite !important;
 }

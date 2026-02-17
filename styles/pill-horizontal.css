@@ -59,7 +59,8 @@
 /* Charging - green gradient */
 
 [class*="_3XySI"][class*="Charging"]::before,
-[class*="_3XySI"][class*="charging"]::before {
+[class*="_3XySI"][class*="charging"]::before,
+[class*="_3XySI"]:has([d="M16 20L21 11V16H26L21 25V20H16Z"])::before {
     background: var(--mbt-charging-color, linear-gradient(to right, #2ecc71, #58d68d)) !important;
 }
 
